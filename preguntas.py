@@ -186,6 +186,17 @@ def pregunta_10():
     new_df = pd.DataFrame(data, columns=["_c2"], index=pd.Series(indices, name="_c1"))
 
     """
+    OTRA FORMA DE HACERLO
+    tbl0["_c2"] = tbl0["_c2"].values.astype(str)
+    grouped = tbl0.groupby("_c1")["_c2"].apply(list)        #vuelve una lista los elementos agrupados
+
+    new_df = pd.DataFrame()
+    new_df["_c2"] = grouped
+    new_df["_c2"] = new_df["_c2"].apply(sorted)         #se ordena cada lista
+    new_df["_c2"] = new_df["_c2"].apply(":".join)       #se vuelve un string con el formato indicado
+    """
+
+    """
     Construya una tabla que contenga _c1 y una lista separada por ':' de los valores de
     la columna _c2 para el archivo `tbl0.tsv`.
 
@@ -202,6 +213,16 @@ def pregunta_10():
 
 
 def pregunta_11():
+
+    grouped = tbl1.groupby("_c0")["_c4"].apply(list)        #vuelve una lista los elementos agrupados
+
+    ans = pd.DataFrame()
+    ans["_c4"] = grouped
+    ans["_c4"] = ans["_c4"].apply(sorted)                   
+    ans["_c4"] = ans["_c4"].apply(",".join)
+    ans.insert(loc = 0, column = "_c0", value = ans.index)  #_c0 había quedado de indice, entonces se pone columna
+    ans = ans.reset_index(drop = True)      #se resetea el indice pa que quede solo de número
+
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c4 del archivo `tbl1.tsv`.
@@ -217,7 +238,7 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    return ans
 
 
 def pregunta_12():
