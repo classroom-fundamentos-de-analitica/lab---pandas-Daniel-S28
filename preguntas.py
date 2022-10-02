@@ -151,6 +151,9 @@ def pregunta_08():
 
 
 def pregunta_09():
+    import re
+    tbl0["year"] = [re.search("\d{4}", fila).group() for fila in tbl0["_c3"]]       #el .group() es para que devuelva el patrón con el que hizo match
+
     """
     Agregue el año como una columna al archivo `tbl0.tsv`.
 
@@ -165,7 +168,7 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+    return tbl0
 
 
 def pregunta_10():
