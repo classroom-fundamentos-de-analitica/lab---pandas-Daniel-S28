@@ -174,15 +174,16 @@ def pregunta_09():
 def pregunta_10():
 
     grouped = tbl0.groupby("_c1")["_c2"]
-    lista=[]
-
+    indices=[]
+    data=[]
     for key, item in grouped:
         string=""
         for i in sorted([i for i in grouped.get_group(key)]):
             string+=str(i)+":"
-        lista.append((key,string.strip(":")))
+        indices.append(key)
+        data.append(string.strip(":"))
 
-    new_df = pd.DataFrame(lista, columns=["_c1","_c2"])
+    new_df = pd.DataFrame(data, columns=["_c2"], index=pd.Series(indices, name="_c1"))
 
     """
     Construya una tabla que contenga _c1 y una lista separada por ':' de los valores de
