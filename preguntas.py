@@ -130,6 +130,9 @@ def pregunta_07():
 
 
 def pregunta_08():
+
+    tbl0["suma"] = tbl0["_c0"] + tbl0["_c2"]
+
     """
     Agregue una columna llamada `suma` con la suma de _c0 y _c2 al archivo `tbl0.tsv`.
 
@@ -144,7 +147,7 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+    return   tbl0.to_csv("tbl0.tsv", index=False)
 
 
 def pregunta_09():
