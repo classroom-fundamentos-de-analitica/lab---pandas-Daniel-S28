@@ -242,6 +242,18 @@ def pregunta_11():
 
 
 def pregunta_12():
+
+    grouped = tbl2.groupby("_c0")
+    data = []
+
+    for key, item in grouped:
+        texto=[]
+        for letras,num in zip(list(grouped.get_group(key)["_c5a"]),list(grouped.get_group(key)["_c5b"])):
+            texto.append(letras+":"+str(num))
+        data.append((key,','.join(sorted(texto))))
+
+    ans = pd.DataFrame(data = data, columns = ["_c0", "_c5"])
+
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c5a y _c5b (unidos por ':') de la tabla `tbl2.tsv`.
@@ -256,7 +268,7 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    return ans
 
 
 def pregunta_13():
