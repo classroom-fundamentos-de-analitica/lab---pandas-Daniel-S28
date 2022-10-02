@@ -147,7 +147,7 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return   tbl0.to_csv("tbl0.tsv", index=False)
+    return   tbl0
 
 
 def pregunta_09():
