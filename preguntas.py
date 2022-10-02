@@ -37,6 +37,10 @@ def pregunta_02():
 
 
 def pregunta_03():
+
+    repeticiones = tbl0["_c1"].value_counts()           #Contar repeticiones de un valor en una columna
+    repeticiones.sort_index(axis = 0, ascending=True, inplace=True)     #Ordenar el df por las filas
+
     """
     ¿Cuál es la cantidad de registros por cada letra de la columna _c1 del archivo
     `tbl0.tsv`?
@@ -50,7 +54,7 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    return repeticiones
 
 
 def pregunta_04():
