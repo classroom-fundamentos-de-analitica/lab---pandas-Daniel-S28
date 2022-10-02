@@ -172,6 +172,18 @@ def pregunta_09():
 
 
 def pregunta_10():
+
+    grouped = tbl0.groupby("_c1")["_c2"]
+    lista=[]
+
+    for key, item in grouped:
+        string=""
+        for i in sorted([i for i in grouped.get_group(key)]):
+            string+=str(i)+":"
+        lista.append((key,string.strip(":")))
+
+    new_df = pd.DataFrame(lista, columns=["_c0","_c1"])
+
     """
     Construya una tabla que contenga _c1 y una lista separada por ':' de los valores de
     la columna _c2 para el archivo `tbl0.tsv`.
@@ -185,7 +197,7 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    return new_df
 
 
 def pregunta_11():
