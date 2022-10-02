@@ -76,6 +76,9 @@ def pregunta_04():
 
 
 def pregunta_05():
+
+    valmax = tbl0.groupby("_c1")["_c2"].max()
+
     """
     Calcule el valor máximo de _c2 por cada letra en la columna _c1 del archivo
     `tbl0.tsv`.
@@ -89,10 +92,13 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    return valmax
 
 
 def pregunta_06():
+
+    unicos = sorted(tbl1["_c4"].str.upper().unique())   #con str.upper paso eso a mayusculas
+
     """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
     en mayusculas y ordenados alfabéticamente.
@@ -101,10 +107,13 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    return unicos
 
 
 def pregunta_07():
+
+    suma = tbl0.groupby("_c1")["_c2"].sum()
+
     """
     Calcule la suma de la _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
 
@@ -117,7 +126,7 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
+    return suma
 
 
 def pregunta_08():
