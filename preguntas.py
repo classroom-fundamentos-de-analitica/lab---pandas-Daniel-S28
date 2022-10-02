@@ -182,7 +182,7 @@ def pregunta_10():
             string+=str(i)+":"
         lista.append((key,string.strip(":")))
 
-    new_df = pd.DataFrame(lista, columns=["_c0","_c1"])
+    new_df = pd.DataFrame(lista, columns=["_c1","_c2"])
 
     """
     Construya una tabla que contenga _c1 y una lista separada por ':' de los valores de
